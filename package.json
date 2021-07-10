@@ -1,0 +1,31 @@
+{
+  "name": "org_model",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc --build",
+    "clean": "tsc --build --clean",
+    "start": "tsnd",
+    "test": "jest -o",
+    "test:watch": "yarn test --watch",
+    "doc": "typedoc src/index.ts",
+    "dbup": "db-migrate up",
+    "dbdown": "db-migrate down",
+    "dbreset": "db-migrate reset"
+  },
+  "dependencies": {
+    "db-migrate": "^0.11.12",
+    "db-migrate-pg": "^1.2.2",
+    "dotenv": "^10.0.0",
+    "pg": "^8.6.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.24",
+    "jest": "^27.0.6",
+    "ts-jest": "^27.0.3",
+    "ts-node-dev": "^1.1.8",
+    "typedoc": "^0.21.2",
+    "typescript": "^4.3.5"
+  }
+}
