@@ -22,7 +22,7 @@ describe('一件のレコードについて', () => {
     result = await client.query(`SELECT * FROM org;`);
   })
   it('結果が一件であること', async () => {
-    expect(result.rowCount).toBe(1)
+    expect(result.rowCount).toBe(1);
   })
   it('初期値を含む値が設定されていること', async () => {
     const exp = {
@@ -32,8 +32,8 @@ describe('一件のレコードについて', () => {
       category: 1,
       parent: null,
       created_at: expect.any(Date),
-      updated_at: expect.any(Date)}
-    expect(result.rows[0]).toEqual(exp)
+      updated_at: expect.any(Date)};
+    expect(result.rows[0]).toEqual(exp);
   })
 })
 
@@ -47,6 +47,6 @@ describe('複数のレコードについて', () => {
     result = await client.query(`SELECT * FROM vw_org;`);
   })
   it('無効レコードが含まれないこと', async () => {
-    expect(result.rowCount).toBe(2)
+    expect(result.rowCount).toBe(2);
   })
 })

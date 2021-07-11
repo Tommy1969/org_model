@@ -16,7 +16,7 @@ type QueryElement = {
   orders: string[];
 }
 
-class Query {
+class StandardQuery {
   #element: QueryElement
   constructor(element?: Partial<QueryElement>) {
     this.#element = {
@@ -24,37 +24,37 @@ class Query {
       fields: element?.fields ?? [],
       filters: element?.filters ?? [],
       orders: element?.orders ?? []
-    }
+    };
   }
 
-  get tables() { return this.#element.tables }
-  get fields() { return this.#element.fields }
-  get filters() { return this.#element.filters }
-  get orders() { return this.#element.orders }
+  get tables() { return this.#element.tables; }
+  get fields() { return this.#element.fields; }
+  get filters() { return this.#element.filters; }
+  get orders() { return this.#element.orders; }
 
   sectionTables(): string {
-    return this.tables?.length ? 'from ' + this.tables.join(', ') : ''
+    return this.tables?.length ? 'from ' + this.tables.join(', ') : '';
   }
 
   sectionFields(): string {
-    return this.fields?.length ? this.fields.join(', ') : '*'
+    return this.fields?.length ? this.fields.join(', ') : '*';
   }
 
   sectionFilters(): string {
-    return this.filters?.length ? 'where ' + this.filters.join(' and ') : ''
+    return this.filters?.length ? 'where ' + this.filters.join(' and ') : '';
   }
 
   sectionOrders(): string {
-    return this.orders?.length ? 'order by ' + this.orders.join(', ') : ''
+    return this.orders?.length ? 'order by ' + this.orders.join(', ') : '';
   }
 
   spawn(element?: Partial<QueryElement>) {
-    return new Query({
+    return new StandardQuery({
       tables: this.tables.concat(element?.tables ?? []),
       fields: this.fields.concat(element?.fields ?? []),
       filters: this.filters.concat(element?.filters ?? []),
       orders: this.orders.concat(element?.orders ?? [])
-    })
+    });
   }
 
   getSelect(): string {
@@ -66,8 +66,8 @@ class Query {
 
     return query
       .filter(it=>it.length>0)
-      .join(' ')
+      .join(' ');
   }
 }
 
-module.exports = Query;
+module.exports = StandardQuery;
