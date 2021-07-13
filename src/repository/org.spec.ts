@@ -1,15 +1,18 @@
-import { Client } from "pg";
+import { client } from "./db";
+import format from "pg-format";
 import { OrgTable } from "./org";
 
-const client = new Client({
-  user: process.env.DB_USER,
-  database: process.env.DB_SPACE,
-  password: process.env.DB_PASSWORD,
-  port: Number(process.env.DB_PORT)
-});
-
+const TEST_DATA = [
+  [1000, null, 1, '会社1', false],
+  [2000, 1000, 2, '組織2', false],
+  [3000, 2000, 2, '組織3', false],
+  [4000, 1000, 2, '組織4', true]     // 無効確認用
+]
 beforeAll(async () => {
   await client.connect();
+  await client.query("TRUNCATE TABLE org");
+  const query = format("INSERT INTO org (id, parent, category, name, disabled) VALUES %L", TEST_DATA)
+  await client.query(query);
 })
 
 afterAll(async () => {
@@ -17,37 +20,28 @@ afterAll(async () => {
 })
 
 describe('一件のレコードについて', () => {
-  let result :any = null
-  beforeAll(async () => {
-    await client.query("TRUNCATE TABLE org");
-    await client.query("INSERT INTO org (name) VALUES ('会社')");
-    result = await client.query(`SELECT * FROM org;`);
-  })
-  it('結果が一件であること', async () => {
-    expect(result.rowCount).toBe(1);
-  })
-  it('初期値を含む値が設定されていること', async () => {
+  const target = new OrgTable(client);
+  it('初期値を含む値が取れること', async () => {
+    const result = await target.getById(1000);
     const exp = {
-      id: expect.any(Number),
-      name: '会社',
-      disabled: false,
-      category: 1,
-      parent: null,
+      id: 1000, name: '会社1', disabled: false,
+      category: 1, parent: null,
       created_at: expect.any(Date),
       updated_at: expect.any(Date)};
-    expect(result.rows[0]).toEqual(exp);
+    expect(result).toEqual(exp);
   })
 })
 
 describe('複数のレコードについて', () => {
-  let result :any = null
-  beforeAll(async () => {
-    await client.query("TRUNCATE TABLE org");
-    await client.query("INSERT INTO org (name) VALUES ('会社1'), ('会社2'), ('会社3')");
-    await client.query("INSERT INTO org (name, disabled) VALUES ('会社4', true)");
-    result = await client.query(`SELECT * FROM vw_org;`);
-  })
-  it('無効レコードが含まれないこと', async () => {
-    expect(result.rowCount).toBe(3);
+  const target = new OrgTable(client);
+  it('無効レコード含を含まない隣接レコードが取れること', async () => {
+    const result = await target.getChildren(1000, 2);
+    const exp = [{
+        id: 2000, name: '組織2', disabled: false,
+        category: 2, parent: 1000,
+        created_at: expect.any(Date),
+        updated_at: expect.any(Date)}
+      ];
+    expect(result).toEqual(exp);
   })
 })

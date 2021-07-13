@@ -1,15 +1,36 @@
+import { Client } from "pg";
 import { Query } from "../util/query";
 
 export class OrgTable {
+  readonly #client:Client;
   readonly #baseQuery:Query = new Query({
     tables:   ['org'],
     filters:  ['disabled=false'],
     orders:   ['created_at']
   })
 
-  getById(id:number) {
-    //FIXME: プレースホルダ方式への変更
-    return this.#baseQuery.spawn({filters: [`id=${id}`]}).getSelect();
+  constructor(client:Client) {
+    this.#client = client;
+  }
+
+  async getById(id:number) {
+    const query = this.#baseQuery.spawn({filters: ['id=$1']}).getSelect();
+    const result = await this.#client.query(query, [id])
+    if (result.rowCount===0) {
+      throw new Error(`Not found organization (#${id})`)
+    }
+    return result.rows[0];
+  }
+
+  /**
+  * 隣接要素
+  */
+  async getChildren(parent:number, category:number) {
+    const query = this.#baseQuery.spawn({
+      filters: [`category=$1`, `parent=$2`]
+    }).getSelect();
+    const result = await this.#client.query(query, [category, parent])
+    return result.rows;
   }
 
   /**
@@ -32,15 +53,6 @@ export class OrgTable {
       )
       select * from temp order by id;
     `;
-  }
-
-  /**
-  * 隣接要素
-  */
-  getChildren(parent:number, category:number) {
-    return this.#baseQuery.spawn({
-      filters: [`category=${category}`, `parent=${parent}`]
-    }).getSelect();
   }
 
   /**

@@ -48,7 +48,7 @@ export class Query {
     return this.orders?.length ? 'order by ' + this.orders.join(', ') : '';
   }
 
-  spawn(element?: Partial<QueryElement>) {
+  spawn(element?: Partial<QueryElement>): Query {
     return new Query({
       tables: this.tables.concat(element?.tables ?? []),
       fields: this.fields.concat(element?.fields ?? []),
