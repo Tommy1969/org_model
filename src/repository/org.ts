@@ -1,8 +1,8 @@
-const Query = require('/util/query');
+import { Query } from "../util/query";
 
-class OrgTable {
+export class OrgTable {
   readonly #baseQuery:Query = new Query({
-    talbe:    ['org'],
+    tables:   ['org'],
     filters:  ['disabled=false'],
     orders:   ['created_at']
   })

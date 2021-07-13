@@ -1,4 +1,4 @@
-const Query = require('./query')
+import { Query } from "./query"
 
 describe('クエリについて', () => {
   it.each([

@@ -1,9 +1,11 @@
-const { Client } = require('pg');
+import { Client } from "pg";
+import { OrgTable } from "./org";
+
 const client = new Client({
   user: process.env.DB_USER,
   database: process.env.DB_SPACE,
   password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT
+  port: Number(process.env.DB_PORT)
 });
 
 beforeAll(async () => {
@@ -41,12 +43,11 @@ describe('複数のレコードについて', () => {
   let result :any = null
   beforeAll(async () => {
     await client.query("TRUNCATE TABLE org");
-    await client.query("INSERT INTO org (name) VALUES ('会社1')");
-    await client.query("INSERT INTO org (name, disabled) VALUES ('会社2', true)");
-    await client.query("INSERT INTO org (name) VALUES ('会社3')");
+    await client.query("INSERT INTO org (name) VALUES ('会社1'), ('会社2'), ('会社3')");
+    await client.query("INSERT INTO org (name, disabled) VALUES ('会社4', true)");
     result = await client.query(`SELECT * FROM vw_org;`);
   })
   it('無効レコードが含まれないこと', async () => {
-    expect(result.rowCount).toBe(2);
+    expect(result.rowCount).toBe(3);
   })
 })

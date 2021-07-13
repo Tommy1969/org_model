@@ -16,7 +16,7 @@ type QueryElement = {
   orders: string[];
 }
 
-class StandardQuery {
+export class Query {
   #element: QueryElement
   constructor(element?: Partial<QueryElement>) {
     this.#element = {
@@ -49,7 +49,7 @@ class StandardQuery {
   }
 
   spawn(element?: Partial<QueryElement>) {
-    return new StandardQuery({
+    return new Query({
       tables: this.tables.concat(element?.tables ?? []),
       fields: this.fields.concat(element?.fields ?? []),
       filters: this.filters.concat(element?.filters ?? []),
@@ -69,5 +69,3 @@ class StandardQuery {
       .join(' ');
   }
 }
-
-module.exports = StandardQuery;
