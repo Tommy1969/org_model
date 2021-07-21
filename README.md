@@ -29,7 +29,7 @@
 
 ### 4. .env ファイルの作成
 
-```env
+```sh
 # .env
 DB_PORT=15432
 DB_USER=test

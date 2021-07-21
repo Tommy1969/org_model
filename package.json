@@ -9,7 +9,10 @@
     "start": "tsnd",
     "test": "jest -o",
     "test:watch": "yarn test --watch",
-    "doc": "typedoc src/index.ts",
+    "test:coverage": "jest --all --coverage",
+    "doc": "typedoc --out ./reports/docs src/",
+    "plato": "ts-plato -r -t 'Source Analysis of org_model' -d ./reports/plato src",
+    "reports": "yarn doc; yarn plato; yarn test:coverage",
     "dbup": "db-migrate up",
     "dbdown": "db-migrate down",
     "dbreset": "db-migrate reset"
@@ -26,7 +29,9 @@
   },
   "devDependencies": {
     "@types/jest": "^26.0.24",
-    "eslint": "^7.30.0",
+    "@typescript-eslint/eslint-plugin": "^4.28.4",
+    "@typescript-eslint/parser": "^4.28.4",
+    "eslint": "^7.31.0",
     "husky": "^7.0.1",
     "jest": "^27.0.6",
     "ts-jest": "^27.0.3",
