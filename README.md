@@ -44,8 +44,10 @@ DB_SPACE=testDb
 ```
 
 ### 6. レポート参照
+```sh
 % git worktree add ./reports reports # 初回のみ
 % open reports/index.html
+```
 
 ## その他
 
