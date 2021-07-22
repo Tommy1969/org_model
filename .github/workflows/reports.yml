@@ -61,7 +61,7 @@ jobs:
           mv .env.test .env
           yarn test:coverage
 
-      - name: TSdoc
+      - name: TypeDoc
         run: yarn doc
 
       - name: Static analysis
