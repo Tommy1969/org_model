@@ -20,6 +20,21 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_USER: test
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: testDb
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 15432:5432
+
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -29,12 +44,6 @@ jobs:
       - name: install modules
         run: |
           yarn install
-
-      - name: setup Docker
-        run: docker-compose build
-
-      - name: start Docker
-        run: docker-compose up -d
 
       - name: db migration
         run: yarn dbup
