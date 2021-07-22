@@ -7,5 +7,16 @@ module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
   setupFiles: ["dotenv/config"],
-  coverageDirectory: "reports/coverage"
+  coverageDirectory: "reports/coverage",
+  reporters: [
+    "default",
+    [
+      "./node_modules/jest-html-reporter",
+      {
+        "pageTitle": "Unit Test Report",
+        "outputPath": "reports/jest.html"
+      }
+    ]
+  ]
+
 };
