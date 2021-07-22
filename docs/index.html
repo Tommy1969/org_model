@@ -61,12 +61,12 @@
 				<a href="#organization-model-のサンプル" id="organization-model-のサンプル" style="color: inherit; text-decoration: none;">
 					<h1>Organization Model のサンプル</h1>
 				</a>
-				<p>今のところ node-db-migrate や PostgreSQL など、各種モジュールの動作確認用のプロジェクトです。</p>
-				<p>一応、目指しているのは次の通りです。</p>
+				<p>今のところ node-db-migrate や PostgreSQL など、各種モジュールの動作確認用のプロジェクトです。一応、目指しているのは次の通りです。</p>
 				<ul>
 					<li>汎用 SQL ビルダー (src/model/sql.ts)</li>
 					<li>RDBMS 階層構造モデル (src/model/org.ts)</li>
 				</ul>
+				<p>内部品質確認用に静的ソースコード解析、テストレポート、テストカバレッジ、TypeDoc の環境を構築し、 github actions で自動生成の上、 reports ブランチへ記録するようにしてます。</p>
 				<a href="#使い方" id="使い方" style="color: inherit; text-decoration: none;">
 					<h2>使い方</h2>
 				</a>
@@ -99,6 +99,11 @@
 				</a>
 				<pre><code class="language-sh"><span style="color: #000000">% yarn </span><span style="color: #795E26">test</span>
 </code></pre>
+				<a href="#6-レポート参照" id="6-レポート参照" style="color: inherit; text-decoration: none;">
+					<h3>6. レポート参照</h3>
+				</a>
+				<p>% git worktree add ./reports reports # 初回のみ
+				% open reports/index.html</p>
 				<a href="#その他" id="その他" style="color: inherit; text-decoration: none;">
 					<h2>その他</h2>
 				</a>
@@ -111,6 +116,7 @@
 						</ul>
 					</li>
 					<li>it.each の使い方</li>
+					<li>github actions のサービスコンテナ (postgresql) の使い方</li>
 				</ul>
 			</div>
 		</div>
