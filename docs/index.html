@@ -1,0 +1,170 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>org_model</title>
+	<meta name="description" content="Documentation for org_model">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">org_model</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>org_model</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#organization-model-のサンプル" id="organization-model-のサンプル" style="color: inherit; text-decoration: none;">
+					<h1>Organization Model のサンプル</h1>
+				</a>
+				<p>今のところ node-db-migrate や PostgreSQL など、各種モジュールの動作確認用のプロジェクトです。</p>
+				<p>一応、目指しているのは次の通りです。</p>
+				<ul>
+					<li>汎用 SQL ビルダー (src/model/sql.ts)</li>
+					<li>RDBMS 階層構造モデル (src/model/org.ts)</li>
+				</ul>
+				<a href="#使い方" id="使い方" style="color: inherit; text-decoration: none;">
+					<h2>使い方</h2>
+				</a>
+				<a href="#1-インストール" id="1-インストール" style="color: inherit; text-decoration: none;">
+					<h3>1. インストール</h3>
+				</a>
+				<pre><code class="language-sh"><span style="color: #000000">% yarn install</span>
+</code></pre>
+				<a href="#2-データベース-postgresql-の起動" id="2-データベース-postgresql-の起動" style="color: inherit; text-decoration: none;">
+					<h3>2. データベース (PostgreSQL) の起動</h3>
+				</a>
+				<pre><code class="language-sh"><span style="color: #000000">% docker compose up -d</span>
+</code></pre>
+				<a href="#3-データベースのマイグレーション" id="3-データベースのマイグレーション" style="color: inherit; text-decoration: none;">
+					<h3>3. データベースのマイグレーション</h3>
+				</a>
+				<pre><code class="language-sh"><span style="color: #000000">% yarn dbup</span>
+</code></pre>
+				<a href="#4-env-ファイルの作成" id="4-env-ファイルの作成" style="color: inherit; text-decoration: none;">
+					<h3>4. .env ファイルの作成</h3>
+				</a>
+				<pre><code class="language-sh"><span style="color: #008000"># .env</span>
+<span style="color: #000000">DB_PORT=15432</span>
+<span style="color: #000000">DB_USER=test</span>
+<span style="color: #000000">DB_PASSWORD=password</span>
+<span style="color: #000000">DB_SPACE=testDb</span>
+</code></pre>
+				<a href="#5-テスト" id="5-テスト" style="color: inherit; text-decoration: none;">
+					<h3>5. テスト</h3>
+				</a>
+				<pre><code class="language-sh"><span style="color: #000000">% yarn </span><span style="color: #795E26">test</span>
+</code></pre>
+				<a href="#その他" id="その他" style="color: inherit; text-decoration: none;">
+					<h2>その他</h2>
+				</a>
+				<p>今のところ、コードを追いかければ、こんなサンプルが落ちてます。</p>
+				<ul>
+					<li>node-db-migrate で<ul>
+							<li>自動タイムスタンプを設定する方法</li>
+							<li>インデックスやユニーク制約の付け方</li>
+							<li>用意されてない要素 (view) の作り方</li>
+						</ul>
+					</li>
+					<li>it.each の使い方</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Modules</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/index.html">index</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/model_organization.html">model/organization</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/repository_db.html">repository/db</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/repository_org.html">repository/org</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/service_company.html">service/company</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/util_query.html">util/query</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
