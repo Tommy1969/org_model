@@ -18,6 +18,10 @@ beforeAll(async () => {
 
 })
 
+afterAll(async () => {
+  await client.end();
+})
+
 it('会社モデルを取れること', async () => {
   const exp = {category: 1, name: '会社1', children: []}
   const result = await CompanyService.getById(1000)
