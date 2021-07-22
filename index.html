@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="">
+<link rel="shortcut icon" href="">
+<style>
+  body {
+    margin:       20px;
+    width:        95vw;
+    height:       95vh;
+  }
+  iframe {
+    width:        100%;
+    height:       100%;
+  }
+  .main {
+    width:        100%;
+    height:       100%;
+    display:      grid;
+    grid-template-columns: 200px 1fr;
+  }
+</style>
+</head>
+<body>
+  <div class="main">
+    <ol>
+      <li><a target="_docview" href="./docs/index.html">
+        TypeDoc</a></li>
+      <li><a  target="_docview" href="./plato/index.html">
+        静的解析レポート</a></li>
+      <li><a  target="_docview" href="./coverage/lcov-report/index.html">
+        カバレッジレポート</a></li>
+      <li><a  target="_docview" href="./jest.html">
+        テストレポート</a></li>
+    </ol>
+    <iframe name="_docview" src="./esdoc/index.html">
+
+    </iframe>
+  </div>
+</body>
+</html>
