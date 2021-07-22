@@ -1,9 +1,0 @@
-{
-  "dev": {
-      "driver": "pg",
-      "port": "15432",
-      "user": "test",
-      "password": "password",
-      "database": "testDb"
-  }
-}
