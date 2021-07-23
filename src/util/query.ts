@@ -58,11 +58,11 @@ export class Query {
   }
 
   getSelect(): string {
-    const query: string[] = ['select']
-    query.push(this.sectionFields())
-    query.push(this.sectionTables())
-    query.push(this.sectionFilters())
-    query.push(this.sectionOrders())
+    const query: string[] = ['select'];
+    query.push(this.sectionFields());
+    query.push(this.sectionTables());
+    query.push(this.sectionFilters());
+    query.push(this.sectionOrders());
 
     return query
       .filter(it=>it.length>0)
