@@ -11,7 +11,7 @@ const TEST_DATA = [
 beforeAll(async () => {
   await client.connect();
   await client.query("TRUNCATE TABLE org");
-  const query = format("INSERT INTO org (id, parent, category, name, disabled) VALUES %L", TEST_DATA)
+  const query = format("INSERT INTO org (id, parent, category, name, disabled) VALUES %L", TEST_DATA);
   await client.query(query);
 })
 

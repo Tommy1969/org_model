@@ -13,7 +13,7 @@ export class OrgTable {
     this.#client = client;
   }
 
-  async getById(id:number) {
+  async getById(id:number):Promise<string[]> {
     const query = this.#baseQuery.spawn({filters: ['id=$1']}).getSelect();
     const result = await this.#client.query(query, [id])
     if (result.rowCount===0) {
@@ -25,7 +25,7 @@ export class OrgTable {
   /**
   * 隣接要素
   */
-  async getChildren(parent:number, category:number) {
+  async getChildren(parent:number, category:number):Promise<string[][]> {
     const query = this.#baseQuery.spawn({
       filters: [`category=$1`, `parent=$2`]
     }).getSelect();
@@ -36,7 +36,7 @@ export class OrgTable {
   /**
   * 再帰
   */
-  getByIdWithChildren(id:number, category:number, depth:number=1) {
+  getByIdWithChildren(id:number, category:number, depth=1):string {
     //FIXME: Query ビルダーを使って構築したい
     return `
       with recursive temp(id, parent, name) as (
@@ -58,14 +58,14 @@ export class OrgTable {
   /**
   * 追加
   */
-  insertItem(props:any, parent:number|null=null) {
+  // insertItem(props:any, parent:number|null=null) {
 
-  }
+  // }
 
   /**
   * 更新
   */
-  updateItem(props:any) {
+  // updateItem(props:any) {
 
-  }
+  // }
 }

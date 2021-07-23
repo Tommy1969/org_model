@@ -1,6 +1,5 @@
 import { client } from "../repository/db";
 import format from "pg-format";
-import { OrgTable } from '../repository/org'
 import { CompanyService } from './company'
 
 

@@ -27,10 +27,10 @@ export class Query {
     };
   }
 
-  get tables() { return this.#element.tables; }
-  get fields() { return this.#element.fields; }
-  get filters() { return this.#element.filters; }
-  get orders() { return this.#element.orders; }
+  get tables():string[] { return this.#element.tables; }
+  get fields():string[] { return this.#element.fields; }
+  get filters():string[] { return this.#element.filters; }
+  get orders():string[] { return this.#element.orders; }
 
   sectionTables(): string {
     return this.tables?.length ? 'from ' + this.tables.join(', ') : '';

@@ -11,7 +11,7 @@
     "test:watch": "yarn test --watch",
     "test:coverage": "jest --all --coverage",
     "doc": "typedoc --out ./reports/docs src/",
-    "plato": "ts-plato -r -t 'Source Analysis of org_model' -d ./reports/plato src",
+    "plato": "ts-plato -r -n -x '\\.(spec|test)\\.' -t 'Source Analysis of org_model' -d ./reports/plato src",
     "reports": "yarn doc; yarn plato; yarn test:coverage",
     "dbup": "db-migrate up",
     "dbdown": "db-migrate down",
