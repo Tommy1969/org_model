@@ -17,43 +17,34 @@ exports.setup = function (options, seedLink) {
 };
 
 exports.up = function (db) {
-  db.createTable(
-    TABLE,
-    {
-      id: { type: "string", primaryKey: true },
-      parent: {
-        type: "string",
-        foreignKey: {
-          name: "parent_org_id",
-          table: "org",
-          mapping: "id",
-          rules: {
-            onDelete: "CASCADE",
-            onUpdate: "RESTRICT",
-          },
+  db.createTable(TABLE, {
+    id: { type: "uuid", primaryKey: true },
+    parent: {
+      type: "uuid",
+      foreignKey: {
+        name: "parent_organization_id",
+        table: "org",
+        mapping: "id",
+        rules: {
+          onDelete: "CASCADE",
+          onUpdate: "RESTRICT",
         },
       },
-      category: { type: "int", notNull: true, defaultValue: 1 },
-      name: { type: "string", notNull: true },
-      disabled: { type: "boolean", defaultValue: false },
-      created_at: {
-        type: "timestamptz",
-        notNull: true,
-        defaultValue: new String("CURRENT_TIMESTAMP"),
-      },
-      updated_at: {
-        type: "timestamptz",
-        notNull: true,
-        defaultValue: new String("CURRENT_TIMESTAMP"),
-      },
     },
-    () => {
-      // FIXME: id を string に変えたら制約を貼れなくなった…
-      db.addIndex(TABLE, "parent_index", ["parent"], false);
-      db.addIndex(TABLE, "parent_name_unique", ["parent", "name"], true);
-      return null;
-    }
-  );
+    category: { type: "int", notNull: true, defaultValue: 1 },
+    name: { type: "text", notNull: true },
+    disabled: { type: "boolean", defaultValue: false },
+    created_at: {
+      type: "timestamptz",
+      notNull: true,
+      defaultValue: new String("CURRENT_TIMESTAMP"),
+    },
+    updated_at: {
+      type: "timestamptz",
+      notNull: true,
+      defaultValue: new String("CURRENT_TIMESTAMP"),
+    },
+  });
   return null;
 };
 
