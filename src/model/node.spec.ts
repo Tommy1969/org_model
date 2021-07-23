@@ -1,4 +1,5 @@
-import { CATEGORY, Company, Department, Facility } from "./organization"
+import { CATEGORY } from "./node.interface"
+import { Company, Department, Facility } from "./node"
 
 describe('会社について', () => {
   const target = new Company({name: '会社'});
@@ -11,9 +12,10 @@ describe('会社について', () => {
 
   it('内部データを取れること', () => {
     const exp = {
+      id: null,
       name: '会社',
       category: CATEGORY.COMPANY,
-      children: []
+      parent: null
     }
     expect(target.data).toEqual(exp)
   })
@@ -29,9 +31,10 @@ describe('部門について', () => {
   })
   it('内部データを取れること', () => {
     const exp = {
+      id: null,
       name: '組織',
       category: CATEGORY.DEPARTMENT,
-      children: []
+      parent: null
     }
     expect(target.data).toEqual(exp)
   })
@@ -47,9 +50,10 @@ describe('施設について', () => {
   })
   it('内部データを取れること', () => {
     const exp = {
+      id: null,
       name: '施設',
       category: CATEGORY.FACILITY,
-      children: []
+      parent: null
     }
     expect(target.data).toEqual(exp)
   })

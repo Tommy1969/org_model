@@ -1,7 +1,10 @@
 import { Client } from "pg";
 import { Query } from "../util/query";
 
-export class OrgTable {
+/**
+ * @Obsolete
+ */
+export class OrgTable2 {
   readonly #client:Client;
   readonly #baseQuery:Query = new Query({
     tables:   ['org'],

@@ -1,10 +1,10 @@
 import { client } from "../repository/db";
-import { OrgTable } from '../repository/org'
-import { Company } from '../model/organization'
+import { CmpTable } from '../repository/org_table'
+import { Company } from '../model/node'
 
 export class CompanyService {
-  static async getById(id:number):Promise<Company> {
-    const tbl = new OrgTable(client);
-    return new Company(await tbl.getById(id));
+  static async getById(id:string):Promise<Company> {
+    const tbl = new CmpTable(client);
+    return await tbl.getById(id)
   }
 }
