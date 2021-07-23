@@ -18,9 +18,9 @@ export class OrgTable2 {
 
   async getById(id:number):Promise<string[]> {
     const query = this.#baseQuery.spawn({filters: ['id=$1']}).getSelect();
-    const result = await this.#client.query(query, [id])
+    const result = await this.#client.query(query, [id]);
     if (result.rowCount===0) {
-      throw new Error(`Not found organization (#${id})`)
+      throw new Error(`Not found organization (#${id})`);
     }
     return result.rows[0];
   }
@@ -32,7 +32,7 @@ export class OrgTable2 {
     const query = this.#baseQuery.spawn({
       filters: [`category=$1`, `parent=$2`]
     }).getSelect();
-    const result = await this.#client.query(query, [category, parent])
+    const result = await this.#client.query(query, [category, parent]);
     return result.rows;
   }
 

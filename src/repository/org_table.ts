@@ -1,7 +1,7 @@
 import { Client } from "pg";
-import { NotFoundError } from '../exception'
-import { Company, Department, Facility } from '../model/node'
-import { CATEGORY, NodeType } from '../model/node.interface'
+import { NotFoundError } from '../exception';
+import { Company, Department, Facility } from '../model/node';
+import { CATEGORY, NodeType } from '../model/node.interface';
 import { Query } from "../util/query";
 
 export class OrgTable {
@@ -18,14 +18,14 @@ export class OrgTable {
     this.#category = CATEGORY.COMPANY;
   }
 
-  set category(value:CATEGORY) { this.#category = value}
+  set category(value:CATEGORY) { this.#category = value;}
 
   async getById(id:string):Promise<NodeType> {
     const query = this.#baseQuery.spawn({filters: ['id=$1', 'category=$2']}).getSelect();
-    const result = await this.#client.query(query, [id, this.#category])
+    const result = await this.#client.query(query, [id, this.#category]);
 
     if (result.rowCount === 0) {
-      throw new NotFoundError(id)
+      throw new NotFoundError(id);
     }
     return result.rows[0] as NodeType;
   }

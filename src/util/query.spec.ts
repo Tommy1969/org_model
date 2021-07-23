@@ -1,4 +1,4 @@
-import { Query } from "./query"
+import { Query } from "./query";
 
 describe('クエリについて', () => {
   it.each([
@@ -8,7 +8,7 @@ describe('クエリについて', () => {
   ])('セットした from 節になること', (element, exp) => {
     const target = new Query(element);
     expect(target.sectionTables()).toEqual(exp);
-  })
+  });
 
   it.each([
     [{fields: []}, '*'],
@@ -17,7 +17,7 @@ describe('クエリについて', () => {
   ])('期待したフィールド節になること', (element, exp) => {
     const target = new Query(element);
     expect(target.sectionFields()).toEqual(exp);
-  })
+  });
 
   it.each([
     [{filters: []}, ''],
@@ -26,7 +26,7 @@ describe('クエリについて', () => {
   ])('期待した where 節になること', (element, exp) => {
     const target = new Query(element);
     expect(target.sectionFilters()).toEqual(exp);
-  })
+  });
 
   it.each([
     [{orders: []}, ''],
@@ -35,7 +35,7 @@ describe('クエリについて', () => {
   ])('期待した order by 節になること', (element, exp) => {
     const target = new Query(element);
     expect(target.sectionOrders()).toEqual(exp);
-  })
+  });
 
   it('', () => {
     const target1 = new Query({tables: ['org'], filters: ['disable=false']});
@@ -43,10 +43,10 @@ describe('クエリについて', () => {
 
     expect(target1.getSelect()).toEqual('select * from org where disable=false');
     expect(target2.getSelect()).toEqual('select * from org, org2 where disable=false and id=9');
-  })
+  });
 
   it('', () => {
     const target = new Query({tables: ['org']});
     expect(target.getSelect()).toEqual('select * from org');
-  })
+  });
 });

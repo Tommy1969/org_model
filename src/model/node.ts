@@ -1,7 +1,7 @@
 import { CATEGORY, NodeType } from './node.interface';
 
 export abstract class Node {
-  #element: NodeType
+  readonly #element: NodeType
   #children: Node[]
 
   constructor(
@@ -10,17 +10,17 @@ export abstract class Node {
     this.#element = {
       id:       element.id        ?? null,
       category: element.category  ?? CATEGORY.COMPANY,
-      name:     element?.name     ?? '',
+      name:     element.name      ?? '',
       parent:   element.parent    ?? null
-    }
-    this.#children = children ?? []
+    };
+    this.#children = children ?? [];
   }
   get id():       string|null { return this.#element.id; }
   get category(): CATEGORY    { return this.#element.category; }
   get name():     string      { return this.#element.name; }
   get parent():   string|null { return this.#element.parent; }
   get children(): Node[]      { return this.#children; }
-  get data():     NodeType    { return {...this.#element}; }
+  get data():     NodeType    { return this.#element; }
 }
 
 /**
@@ -29,7 +29,7 @@ export abstract class Node {
  */
 export class Company extends Node {
   constructor(element:Partial<NodeType>) {
-    super({...element, category:CATEGORY.COMPANY})
+    super({...element, category:CATEGORY.COMPANY});
   }
 }
 
@@ -38,7 +38,7 @@ export class Company extends Node {
  */
 export class Department extends Node {
   constructor(element:Partial<NodeType>) {
-    super({...element, category:CATEGORY.DEPARTMENT})
+    super({...element, category:CATEGORY.DEPARTMENT});
   }
 }
 
@@ -47,6 +47,6 @@ export class Department extends Node {
  */
 export class Facility extends Node {
   constructor(element:Partial<NodeType>) {
-    super({...element, category:CATEGORY.FACILITY})
+    super({...element, category:CATEGORY.FACILITY});
   }
 }
