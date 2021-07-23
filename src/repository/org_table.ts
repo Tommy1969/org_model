@@ -11,14 +11,18 @@ export class OrgTable {
     filters:  ['disabled=false'],
     orders:   ['created_at']
   })
+  #category: CATEGORY
 
   constructor(client:Client) {
-    this.#client = client
+    this.#client = client;
+    this.#category = CATEGORY.COMPANY;
   }
 
-  async getById(id:string, categoly:CATEGORY):Promise<NodeType> {
+  set category(value:CATEGORY) { this.#category = value}
+
+  async getById(id:string):Promise<NodeType> {
     const query = this.#baseQuery.spawn({filters: ['id=$1', 'category=$2']}).getSelect();
-    const result = await this.#client.query(query, [id, categoly])
+    const result = await this.#client.query(query, [id, this.#category])
 
     if (result.rowCount === 0) {
       throw new NotFoundError(id)
@@ -31,8 +35,13 @@ export class OrgTable {
  * 会社の時のテーブル操作
  */
 export class CmpTable extends OrgTable {
+  constructor(client:Client) {
+    super(client);
+    this.category = CATEGORY.COMPANY;
+  }
+
   async getById(id:string):Promise<Company> {
-    return new Company(await super.getById(id, CATEGORY.COMPANY));
+    return new Company(await super.getById(id));
   }
 }
 
@@ -40,8 +49,13 @@ export class CmpTable extends OrgTable {
  * 部門の時のテーブル操作
  */
 export class DepTable extends OrgTable {
+  constructor(client:Client) {
+    super(client);
+    this.category = CATEGORY.DEPARTMENT;
+  }
+
   async getById(id:string):Promise<Department> {
-    return new Department(await super.getById(id, CATEGORY.DEPARTMENT));
+    return new Department(await super.getById(id));
   }
 }
 
@@ -49,7 +63,12 @@ export class DepTable extends OrgTable {
  * 施設の時のテーブル操作
  */
 export class FacTable extends OrgTable {
+  constructor(client:Client) {
+    super(client);
+    this.category = CATEGORY.FACILITY;
+  }
+
   async getById(id:string):Promise<Facility> {
-    return new Facility(await super.getById(id, CATEGORY.FACILITY));
+    return new Facility(await super.getById(id));
   }
 }
