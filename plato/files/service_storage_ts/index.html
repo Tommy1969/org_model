@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Plato - util/query.ts</title>
+  <title>Plato - service/storage.ts</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
@@ -39,7 +39,7 @@
 
 <div class="jumbotron">
   <div class="container">
-    <h1>util/query.ts</h1>
+    <h1>service/storage.ts</h1>
   </div>
 </div>
 
@@ -47,11 +47,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
-      <p class="stat">70.51</p>
+      <p class="stat">76.05</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
-      <p class="stat">72</p>
+      <p class="stat">21</p>
     </div>
   </div>
   <div class="row historical">
@@ -65,11 +65,11 @@
   <div class="row">
     <div class="col-md-6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
-      <p class="stat">30.98</p>
+      <p class="stat">9.30</p>
     </div>
     <div class="col-md-6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
-      <p class="stat">0.46</p>
+      <p class="stat">0.09</p>
     </div>
   </div>
 </div>
@@ -92,75 +92,24 @@
 
 <div class="container">
   <div class="row">
-    <textarea id="file-source" class="col-md-12">/**
- * 使い方:
- * 基準クエリーを作る
- * const baseQ = Query({tables=[&#039;org&#039;], filters=[&#039;disable=false&#039;]})
- * 基準クエリーから派生クエリを作る
- * const inhelQ = baseQ.spawn({filters=[&#039;parent=1&#039;]})
- * 両方の条件を加味した select を取得できる
- * inhelQ.getSelect() =&gt;
- *    &#039;select * from org where disable=false and parent=1&#039;
- */
+    <textarea id="file-source" class="col-md-12">import { client } from &quot;../repository/db&quot;;
+import { CmpTable, DepTable, FacTable } from &#039;../repository/org_table&#039;;
+import { Company, Department, Facility } from &#039;../model/node&#039;;
 
-type QueryElement = {
-  tables: string[];
-  fields: string[];
-  filters: string[];
-  orders: string[];
-}
-
-export class Query {
-  #element: QueryElement
-  constructor(element?: Partial&lt;QueryElement&gt;) {
-    this.#element = {
-      tables: element?.tables ?? [],
-      fields: element?.fields ?? [],
-      filters: element?.filters ?? [],
-      orders: element?.orders ?? []
-    };
+export class StorageService {
+  static async getCompanyById(id: string): Promise&lt;Company&gt; {
+    const tbl = new CmpTable(client);
+    return await tbl.getById(id);
   }
 
-  get tables():string[] { return this.#element.tables; }
-  get fields():string[] { return this.#element.fields; }
-  get filters():string[] { return this.#element.filters; }
-  get orders():string[] { return this.#element.orders; }
-
-  sectionTables(): string {
-    return this.tables?.length ? &#039;from &#039; + this.tables.join(&#039;, &#039;) : &#039;&#039;;
+  static async getDepartmentById(id: string): Promise&lt;Department&gt; {
+    const tbl = new DepTable(client);
+    return await tbl.getById(id);
   }
 
-  sectionFields(): string {
-    return this.fields?.length ? this.fields.join(&#039;, &#039;) : &#039;*&#039;;
-  }
-
-  sectionFilters(): string {
-    return this.filters?.length ? &#039;where &#039; + this.filters.join(&#039; and &#039;) : &#039;&#039;;
-  }
-
-  sectionOrders(): string {
-    return this.orders?.length ? &#039;order by &#039; + this.orders.join(&#039;, &#039;) : &#039;&#039;;
-  }
-
-  spawn(element?: Partial&lt;QueryElement&gt;): Query {
-    return new Query({
-      tables: this.tables.concat(element?.tables ?? []),
-      fields: this.fields.concat(element?.fields ?? []),
-      filters: this.filters.concat(element?.filters ?? []),
-      orders: this.orders.concat(element?.orders ?? [])
-    });
-  }
-
-  getSelect(): string {
-    const query: string[] = [&#039;select&#039;];
-    query.push(this.sectionFields());
-    query.push(this.sectionTables());
-    query.push(this.sectionFilters());
-    query.push(this.sectionOrders());
-
-    return query
-      .filter(it=&gt;it.length&gt;0)
-      .join(&#039; &#039;);
+  static async getFacilityById(id: string): Promise&lt;Facility&gt; {
+    const tbl = new FacTable(client);
+    return await tbl.getById(id);
   }
 }
 </textarea>

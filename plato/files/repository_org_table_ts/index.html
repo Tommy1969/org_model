@@ -93,9 +93,9 @@
 <div class="container">
   <div class="row">
     <textarea id="file-source" class="col-md-12">import { Client } from &quot;pg&quot;;
-import { NotFoundError } from &#039;../exception&#039;
-import { Company, Department, Facility } from &#039;../model/node&#039;
-import { CATEGORY, NodeType } from &#039;../model/node.interface&#039;
+import { NotFoundError } from &#039;../exception&#039;;
+import { Company, Department, Facility } from &#039;../model/node&#039;;
+import { CATEGORY, NodeType } from &#039;../model/node.interface&#039;;
 import { Query } from &quot;../util/query&quot;;
 
 export class OrgTable {
@@ -112,14 +112,14 @@ export class OrgTable {
     this.#category = CATEGORY.COMPANY;
   }
 
-  set category(value:CATEGORY) { this.#category = value}
+  set category(value:CATEGORY) { this.#category = value;}
 
   async getById(id:string):Promise&lt;NodeType&gt; {
     const query = this.#baseQuery.spawn({filters: [&#039;id=$1&#039;, &#039;category=$2&#039;]}).getSelect();
-    const result = await this.#client.query(query, [id, this.#category])
+    const result = await this.#client.query(query, [id, this.#category]);
 
     if (result.rowCount === 0) {
-      throw new NotFoundError(id)
+      throw new NotFoundError(id);
     }
     return result.rows[0] as NodeType;
   }
