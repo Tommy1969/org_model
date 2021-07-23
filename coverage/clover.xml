@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1627035350180" clover="3.2.0">
-  <project timestamp="1627035350180" name="All files">
-    <metrics statements="63" coveredstatements="60" conditionals="36" coveredconditionals="32" methods="29" coveredmethods="26" elements="128" coveredelements="118" complexity="0" loc="63" ncloc="63" packages="5" files="7" classes="7"/>
+<coverage generated="1627036824686" clover="3.2.0">
+  <project timestamp="1627036824687" name="All files">
+    <metrics statements="66" coveredstatements="63" conditionals="36" coveredconditionals="33" methods="29" coveredmethods="26" elements="131" coveredelements="122" complexity="0" loc="66" ncloc="66" packages="5" files="7" classes="7"/>
     <package name="src">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="exception.ts" path="/home/runner/work/org_model/org_model/src/exception.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="2" type="stmt"/>
-        <line num="3" count="4" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
       </file>
     </package>
     <package name="src.model">
@@ -39,30 +39,33 @@
       </file>
     </package>
     <package name="src.repository">
-      <metrics statements="18" coveredstatements="18" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="5"/>
+      <metrics statements="21" coveredstatements="21" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="5"/>
       <file name="db.ts" path="/home/runner/work/org_model/org_model/src/repository/db.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
       </file>
       <file name="org_table.ts" path="/home/runner/work/org_model/org_model/src/repository/org_table.ts">
-        <metrics statements="16" coveredstatements="16" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="5"/>
+        <metrics statements="19" coveredstatements="19" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="5"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="7" count="5" type="stmt"/>
-        <line num="10" count="5" type="stmt"/>
-        <line num="14" count="9" type="stmt"/>
-        <line num="15" count="9" type="stmt"/>
-        <line num="16" count="9" type="cond" truecount="2" falsecount="0"/>
-        <line num="17" count="4" type="stmt"/>
-        <line num="19" count="5" type="stmt"/>
-        <line num="26" count="2" type="stmt"/>
-        <line num="28" count="3" type="stmt"/>
-        <line num="35" count="2" type="stmt"/>
-        <line num="37" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="20" count="7" type="stmt"/>
+        <line num="21" count="7" type="stmt"/>
+        <line num="23" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="24" count="3" type="stmt"/>
+        <line num="26" count="4" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="35" count="3" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
         <line num="44" count="2" type="stmt"/>
-        <line num="46" count="2" type="stmt"/>
+        <line num="51" count="2" type="stmt"/>
+        <line num="53" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.service">
@@ -77,28 +80,28 @@
       </file>
     </package>
     <package name="src.util">
-      <metrics statements="19" coveredstatements="19" conditionals="24" coveredconditionals="22" methods="12" coveredmethods="12"/>
+      <metrics statements="19" coveredstatements="19" conditionals="24" coveredconditionals="23" methods="12" coveredmethods="12"/>
       <file name="query.ts" path="/home/runner/work/org_model/org_model/src/util/query.ts">
-        <metrics statements="19" coveredstatements="19" conditionals="24" coveredconditionals="22" methods="12" coveredmethods="12"/>
-        <line num="19" count="1" type="stmt"/>
-        <line num="20" count="15" type="stmt"/>
-        <line num="22" count="15" type="stmt"/>
-        <line num="30" count="12" type="stmt"/>
-        <line num="31" count="9" type="stmt"/>
-        <line num="32" count="11" type="stmt"/>
-        <line num="33" count="9" type="stmt"/>
-        <line num="36" count="6" type="cond" truecount="2" falsecount="0"/>
-        <line num="40" count="6" type="cond" truecount="2" falsecount="0"/>
-        <line num="44" count="6" type="cond" truecount="2" falsecount="0"/>
-        <line num="48" count="6" type="cond" truecount="2" falsecount="0"/>
-        <line num="52" count="1" type="stmt"/>
-        <line num="61" count="3" type="stmt"/>
-        <line num="62" count="3" type="stmt"/>
-        <line num="63" count="3" type="stmt"/>
-        <line num="64" count="3" type="stmt"/>
-        <line num="65" count="3" type="stmt"/>
-        <line num="67" count="3" type="stmt"/>
-        <line num="68" count="15" type="stmt"/>
+        <metrics statements="19" coveredstatements="19" conditionals="24" coveredconditionals="23" methods="12" coveredmethods="12"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="20" count="26" type="stmt"/>
+        <line num="22" count="26" type="stmt"/>
+        <line num="30" count="33" type="stmt"/>
+        <line num="31" count="23" type="stmt"/>
+        <line num="32" count="32" type="stmt"/>
+        <line num="33" count="30" type="stmt"/>
+        <line num="36" count="13" type="cond" truecount="2" falsecount="0"/>
+        <line num="40" count="13" type="cond" truecount="2" falsecount="0"/>
+        <line num="44" count="13" type="cond" truecount="2" falsecount="0"/>
+        <line num="48" count="13" type="cond" truecount="2" falsecount="0"/>
+        <line num="52" count="8" type="stmt"/>
+        <line num="61" count="10" type="stmt"/>
+        <line num="62" count="10" type="stmt"/>
+        <line num="63" count="10" type="stmt"/>
+        <line num="64" count="10" type="stmt"/>
+        <line num="65" count="10" type="stmt"/>
+        <line num="67" count="10" type="stmt"/>
+        <line num="68" count="50" type="stmt"/>
       </file>
     </package>
   </project>

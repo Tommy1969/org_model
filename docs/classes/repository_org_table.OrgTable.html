@@ -100,6 +100,7 @@
 						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="repository_org_table.OrgTable.html#_baseQuery" class="tsd-kind-icon">#base<wbr>Query</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="repository_org_table.OrgTable.html#_client" class="tsd-kind-icon">#client</a></li>
 							</ul>
 						</section>
@@ -124,7 +125,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Tommy1969/org_model/blob/df6c47d/src/repository/org_table.ts#L9">src/repository/org_table.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/Tommy1969/org_model/blob/17f00f8/src/repository/org_table.ts#L15">src/repository/org_table.ts:15</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -141,12 +142,22 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_baseQuery" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> #base<wbr>Query</h3>
+					<div class="tsd-signature tsd-kind-icon">#base<wbr>Query<span class="tsd-signature-symbol">:</span> <a href="util_query.Query.html" class="tsd-signature-type" data-tsd-kind="Class">Query</a><span class="tsd-signature-symbol"> = ...</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Tommy1969/org_model/blob/17f00f8/src/repository/org_table.ts#L9">src/repository/org_table.ts:9</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_client" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> #client</h3>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> #client</h3>
 					<div class="tsd-signature tsd-kind-icon">#client<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Client</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Tommy1969/org_model/blob/df6c47d/src/repository/org_table.ts#L7">src/repository/org_table.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/Tommy1969/org_model/blob/17f00f8/src/repository/org_table.ts#L8">src/repository/org_table.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -157,19 +168,22 @@
 					<a name="getById" class="tsd-anchor"></a>
 					<h3>get<wbr>ById</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>ById<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/model_node_interface.html#NodeType" class="tsd-signature-type" data-tsd-kind="Type alias">NodeType</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>ById<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, categoly<span class="tsd-signature-symbol">: </span><a href="../modules/model_node_interface.html#CATEGORY-1" class="tsd-signature-type" data-tsd-kind="Variable">CATEGORY</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/model_node_interface.html#NodeType" class="tsd-signature-type" data-tsd-kind="Type alias">NodeType</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Tommy1969/org_model/blob/df6c47d/src/repository/org_table.ts#L13">src/repository/org_table.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/Tommy1969/org_model/blob/17f00f8/src/repository/org_table.ts#L19">src/repository/org_table.ts:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>id: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>categoly: <a href="../modules/model_node_interface.html#CATEGORY-1" class="tsd-signature-type" data-tsd-kind="Variable">CATEGORY</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/model_node_interface.html#NodeType" class="tsd-signature-type" data-tsd-kind="Type alias">NodeType</a><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -231,6 +245,9 @@
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
 								<a href="repository_org_table.OrgTable.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="repository_org_table.OrgTable.html#_baseQuery" class="tsd-kind-icon">#base<wbr>Query</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="repository_org_table.OrgTable.html#_client" class="tsd-kind-icon">#client</a>
