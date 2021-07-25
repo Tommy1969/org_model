@@ -115,7 +115,9 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="repository_org_table.DepTable.html#getById" class="tsd-kind-icon">get<wbr>ById</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="repository_org_table.DepTable.html#convModel" class="tsd-kind-icon">conv<wbr>Model</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="repository_org_table.DepTable.html#getAllChildrenById" class="tsd-kind-icon">get<wbr>All<wbr>Children<wbr>ById</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="repository_org_table.DepTable.html#getNodeById" class="tsd-kind-icon">get<wbr>Node<wbr>ById</a></li>
 							</ul>
 						</section>
 					</div>
@@ -134,7 +136,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="repository_org_table.OrgTable.html">OrgTable</a>.<a href="repository_org_table.OrgTable.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Tommy1969/org_model/blob/05bc514/src/repository/org_table.ts#L52">src/repository/org_table.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/Tommy1969/org_model/blob/f97a933/src/repository/org_table.ts#L92">src/repository/org_table.ts:92</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -157,7 +159,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="repository_org_table.OrgTable.html">OrgTable</a>.<a href="repository_org_table.OrgTable.html#_baseQuery">#baseQuery</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Tommy1969/org_model/blob/05bc514/src/repository/org_table.ts#L9">src/repository/org_table.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/Tommy1969/org_model/blob/f97a933/src/repository/org_table.ts#L9">src/repository/org_table.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -168,7 +170,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="repository_org_table.OrgTable.html">OrgTable</a>.<a href="repository_org_table.OrgTable.html#_category">#category</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Tommy1969/org_model/blob/05bc514/src/repository/org_table.ts#L14">src/repository/org_table.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/Tommy1969/org_model/blob/f97a933/src/repository/org_table.ts#L14">src/repository/org_table.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -179,7 +181,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="repository_org_table.OrgTable.html">OrgTable</a>.<a href="repository_org_table.OrgTable.html#_client">#client</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Tommy1969/org_model/blob/05bc514/src/repository/org_table.ts#L8">src/repository/org_table.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/Tommy1969/org_model/blob/f97a933/src/repository/org_table.ts#L8">src/repository/org_table.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -196,7 +198,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Tommy1969/org_model/blob/05bc514/src/repository/org_table.ts#L21">src/repository/org_table.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/Tommy1969/org_model/blob/f97a933/src/repository/org_table.ts#L21">src/repository/org_table.ts:21</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -212,18 +214,69 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-					<a name="getById" class="tsd-anchor"></a>
-					<h3>get<wbr>ById</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>ById<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="model_node.Department.html" class="tsd-signature-type" data-tsd-kind="Class">Department</a><span class="tsd-signature-symbol">&gt;</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="convModel" class="tsd-anchor"></a>
+					<h3>conv<wbr>Model</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">conv<wbr>Model<span class="tsd-signature-symbol">(</span>element<span class="tsd-signature-symbol">: </span><a href="../modules/model_node_interface.html#NodeType" class="tsd-signature-type" data-tsd-kind="Type alias">NodeType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="model_node.Company.html" class="tsd-signature-type" data-tsd-kind="Class">Company</a><span class="tsd-signature-symbol"> | </span><a href="model_node.Department.html" class="tsd-signature-type" data-tsd-kind="Class">Department</a><span class="tsd-signature-symbol"> | </span><a href="model_node.Facility.html" class="tsd-signature-type" data-tsd-kind="Class">Facility</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="repository_org_table.OrgTable.html">OrgTable</a>.<a href="repository_org_table.OrgTable.html#getById">getById</a></p>
+								<p>Inherited from <a href="repository_org_table.OrgTable.html">OrgTable</a>.<a href="repository_org_table.OrgTable.html#convModel">convModel</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Tommy1969/org_model/blob/05bc514/src/repository/org_table.ts#L57">src/repository/org_table.ts:57</a></li>
+									<li>Defined in <a href="https://github.com/Tommy1969/org_model/blob/f97a933/src/repository/org_table.ts#L58">src/repository/org_table.ts:58</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>element: <a href="../modules/model_node_interface.html#NodeType" class="tsd-signature-type" data-tsd-kind="Type alias">NodeType</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="model_node.Company.html" class="tsd-signature-type" data-tsd-kind="Class">Company</a><span class="tsd-signature-symbol"> | </span><a href="model_node.Department.html" class="tsd-signature-type" data-tsd-kind="Class">Department</a><span class="tsd-signature-symbol"> | </span><a href="model_node.Facility.html" class="tsd-signature-type" data-tsd-kind="Class">Facility</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="getAllChildrenById" class="tsd-anchor"></a>
+					<h3>get<wbr>All<wbr>Children<wbr>ById</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>All<wbr>Children<wbr>ById<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, category<span class="tsd-signature-symbol">: </span><a href="../modules/model_node_interface.html#CATEGORY-1" class="tsd-signature-type" data-tsd-kind="Variable">CATEGORY</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/model_node_interface.html#NodeType" class="tsd-signature-type" data-tsd-kind="Type alias">NodeType</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="repository_org_table.OrgTable.html">OrgTable</a>.<a href="repository_org_table.OrgTable.html#getAllChildrenById">getAllChildrenById</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Tommy1969/org_model/blob/f97a933/src/repository/org_table.ts#L33">src/repository/org_table.ts:33</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>id: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>category: <a href="../modules/model_node_interface.html#CATEGORY-1" class="tsd-signature-type" data-tsd-kind="Variable">CATEGORY</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../modules/model_node_interface.html#NodeType" class="tsd-signature-type" data-tsd-kind="Type alias">NodeType</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="getNodeById" class="tsd-anchor"></a>
+					<h3>get<wbr>Node<wbr>ById</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Node<wbr>ById<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="model_node.Department.html" class="tsd-signature-type" data-tsd-kind="Class">Department</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="repository_org_table.OrgTable.html">OrgTable</a>.<a href="repository_org_table.OrgTable.html#getNodeById">getNodeById</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Tommy1969/org_model/blob/f97a933/src/repository/org_table.ts#L97">src/repository/org_table.ts:97</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -258,9 +311,6 @@
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/repository_db.html">repository/db</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/repository_org2.html">repository/org2</a>
 					</li>
 					<li class="current tsd-kind-module">
 						<a href="../modules/repository_org_table.html">repository/org_<wbr>table</a>
@@ -298,8 +348,14 @@
 							<li class=" tsd-kind-set-signature tsd-parent-kind-class tsd-is-inherited">
 								<a href="repository_org_table.DepTable.html#category" class="tsd-kind-icon">category</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="repository_org_table.DepTable.html#convModel" class="tsd-kind-icon">conv<wbr>Model</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="repository_org_table.DepTable.html#getAllChildrenById" class="tsd-kind-icon">get<wbr>All<wbr>Children<wbr>ById</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="repository_org_table.DepTable.html#getById" class="tsd-kind-icon">get<wbr>ById</a>
+								<a href="repository_org_table.DepTable.html#getNodeById" class="tsd-kind-icon">get<wbr>Node<wbr>ById</a>
 							</li>
 						</ul>
 					</li>
@@ -329,6 +385,9 @@
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
 			</ul>
 		</div>
 	</div>
