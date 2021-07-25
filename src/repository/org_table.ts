@@ -20,7 +20,7 @@ export class OrgTable {
 
   set category(value:CATEGORY) { this.#category = value;}
 
-  async getById(id:string):Promise<NodeType> {
+  async getNodeById(id:string):Promise<NodeType> {
     const query = this.#baseQuery.spawn({filters: ['id=$1', 'category=$2']}).getSelect();
     const result = await this.#client.query(query, [id, this.#category]);
 
@@ -28,6 +28,36 @@ export class OrgTable {
       throw new NotFoundError(id);
     }
     return result.rows[0] as NodeType;
+  }
+
+  async getAllChildrenById(id:string, category:CATEGORY):Promise<NodeType[]> {
+    const query = `
+      with recursive children (id) as (
+        select *
+        from org
+        where id = $1
+          and category = $2
+          and disabled=false
+        union all
+        select org.*
+        from children, org
+        where org.parent = children.id
+          and org.category = $3
+          and org.disabled=false
+      )
+      select * from children order by created_at;
+    `;
+    const result = await this.#client.query(query, [id, this.#category, category]);
+
+    if (result.rowCount === 0) {
+      throw new NotFoundError(id);
+    }
+    return result.rows as NodeType[];
+  }
+
+  convModel(element:NodeType):Company|Department|Facility {
+    const CLASSES = [Company, Department, Facility];
+    return new CLASSES[element.category-1](element);
   }
 }
 
@@ -40,8 +70,18 @@ export class CmpTable extends OrgTable {
     this.category = CATEGORY.COMPANY;
   }
 
-  async getById(id:string):Promise<Company> {
-    return new Company(await super.getById(id));
+  async getNodeById(id:string):Promise<Company> {
+    return this.convModel(await super.getNodeById(id));
+  }
+
+  async getAllDepartmentsById(id:string):Promise<(Company|Department)[]> {
+    const result:NodeType[] = await this.getAllChildrenById(id, CATEGORY.DEPARTMENT);
+    return result.map(it => this.convModel(it));
+  }
+
+  async getAllFacilitiesById(id:string):Promise<(Company|Facility)[]> {
+    const result:NodeType[] = await this.getAllChildrenById(id, CATEGORY.DEPARTMENT);
+    return result.map(it => this.convModel(it));
   }
 }
 
@@ -54,8 +94,8 @@ export class DepTable extends OrgTable {
     this.category = CATEGORY.DEPARTMENT;
   }
 
-  async getById(id:string):Promise<Department> {
-    return new Department(await super.getById(id));
+  async getNodeById(id:string):Promise<Department> {
+    return this.convModel(await super.getNodeById(id));
   }
 }
 
@@ -68,7 +108,7 @@ export class FacTable extends OrgTable {
     this.category = CATEGORY.FACILITY;
   }
 
-  async getById(id:string):Promise<Facility> {
-    return new Facility(await super.getById(id));
+  async getNodeById(id:string):Promise<Facility> {
+    return this.convModel(await super.getNodeById(id));
   }
 }
