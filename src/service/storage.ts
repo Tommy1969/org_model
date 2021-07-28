@@ -18,6 +18,11 @@ export class StorageService {
     return await tbl.getNodeById(id);
   }
 
+  /**
+   * 部門階層の取得
+   * @param id 会社 ID
+   * @returns 部門階層を含んだ会社オブジェクト
+   */
   static async getDepStructureByCmpId(id: string): Promise<Company> {
     const tbl = new CmpTable(client);
     const tmp = await tbl.getAllDepartmentsById(id);
@@ -30,6 +35,11 @@ export class StorageService {
     return map.get(id) as Company;
   }
 
+  /**
+   * 施設階層の取得
+   * @param id 会社 ID
+   * @returns 施設階層を含んだ会社オブジェクト
+   */
   static async getFacStructureByCmpId(id: string): Promise<Company> {
     const tbl = new CmpTable(client);
     const tmp = await tbl.getAllFacilitiesById(id);
